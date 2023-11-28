@@ -11,7 +11,8 @@ abstract class AuthenticationProxy extends Service
     {
         try
         {
-            $token = $_SERVER['HTTP_X_ACCESS_TOKEN'];
+            $headers = apache_request_headers();
+            $token = $headers['x-access-token'];
 
             if (!$token) {
                 return false;
