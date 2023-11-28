@@ -5,7 +5,7 @@ use Firebase\JWT\Key;
 
 include_once './src/middlewares/service.php';
 
-abstract class AuthenticationProxy implements Service
+abstract class AuthenticationProxy extends Service
 {
     public function validateAccessToken()
     {

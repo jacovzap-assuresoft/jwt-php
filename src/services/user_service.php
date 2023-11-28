@@ -3,7 +3,7 @@
 include_once './src/middlewares/service.php';
 include_once './src/repositories/user_repository.php';
 
-class UserService implements Service
+class UserService extends Service
 {
     private $user_repository;
 

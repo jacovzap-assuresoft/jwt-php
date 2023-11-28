@@ -3,7 +3,7 @@
 include_once './src/middlewares/service.php';
 include_once './src/repositories/order_repository.php';
 
-class OrderService implements Service
+class OrderService extends Service
 {
     private $order_repository;
 

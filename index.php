@@ -10,8 +10,6 @@ include_once './src/services/authentication_service.php';
 include_once './src/middlewares/user_authentication.php';
 include_once './src/middlewares/order_authentication.php';
 
-// include './src/config/createTables.php';
-
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
@@ -42,6 +40,11 @@ if ($mainPath === "orders") {
 
     if ($method === 'GET') {
         echo json_encode($service->getAllOrders());
+    }
+
+    if ($method === 'POST') {
+        $body = json_decode(file_get_contents('php://input'), true);
+        echo json_encode($service->createOrder($body));
     }
 
     exit();

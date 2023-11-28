@@ -14,20 +14,24 @@ class OrderAuthentication extends AuthenticationProxy
 
     public function getAllOrders()
     {
-        $token = $_SERVER['HTTP_TOKEN'];
-        if ($token == '1234') {
+        if ($this->validateAccessToken())
+        {
             return $this->service->getAllOrders();
-        } else {
+        }
+        else
+        {
             return ['error' => 'Invalid token'];
         }
     }
 
     public function createOrder($body)
     {
-        $token = $_SERVER['HTTP_TOKEN'];
-        if ($token == '1234') {
+        if ($this->validateAccessToken())
+        {
             return $this->service->createOrder($body);
-        } else {
+        }
+        else
+        {
             return ['error' => 'Invalid token'];
         }
     }

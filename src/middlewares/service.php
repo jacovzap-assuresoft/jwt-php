@@ -1,5 +1,5 @@
 <?php
 
-interface Service
+abstract class Service
 {
 }
