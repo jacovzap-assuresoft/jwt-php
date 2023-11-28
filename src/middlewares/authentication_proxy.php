@@ -17,7 +17,7 @@ abstract class AuthenticationProxy extends Service
                 return false;
             }
 
-            $decoded = JWT::decode($token, new Key($_ENV['JWT_KEY'], 'HS512'));
+            $decoded = JWT::decode($token, new Key($_ENV['JWT_KEY'], 'HS256'));
 
             if ($decoded->exp < time()) {
                 return false;
